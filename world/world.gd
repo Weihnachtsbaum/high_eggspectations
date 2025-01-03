@@ -8,6 +8,7 @@ func _physics_process(delta: float) -> void:
 	if spawn_timer >= 4.:
 		spawn_timer = 0.
 		var egg := EGG.instantiate()
-		egg.position.x = get_viewport().size.x / 2.
-		egg.position.y = 26.
+		var width: float = get_viewport().size.x
+		egg.position.x = randf_range(width * 0.25, width * 0.75)
+		egg.position.y = -26.
 		add_child(egg)
