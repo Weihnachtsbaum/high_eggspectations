@@ -10,5 +10,7 @@ func _input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	velocity.x = Input.get_axis("left", "right") * SPEED
+	if velocity.x != 0.:
+		$Sprite.flip_h = velocity.x > 0.
 	velocity.y += gravity * delta
 	move_and_slide()
