@@ -8,6 +8,7 @@ var has_parachute := false
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump"):
 		velocity.y = JUMP_SPEED
+		$Flap.play()
 
 func _physics_process(delta: float) -> void:
 	velocity.x = Input.get_axis("left", "right") * SPEED
