@@ -24,6 +24,7 @@ shape = SubResource("CircleShape2D_lco1k")
 
 [node name="Sprite" type="Sprite2D" parent="Player"]
 texture = ExtResource("1_bdylr")
+flip_h = true
 
 [node name="Flap" type="AudioStreamPlayer2D" parent="Player"]
 stream = SubResource("AudioStreamRandomizer_ll8m4")
