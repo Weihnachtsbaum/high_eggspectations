@@ -3,6 +3,7 @@ extends CharacterBody2D
 const JUMP_SPEED := -500.
 const SPEED := 500.
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
+var has_parachute := false
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump"):
