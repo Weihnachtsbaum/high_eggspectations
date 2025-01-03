@@ -1,10 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://ybenhd6fbj8j"]
+[gd_scene load_steps=14 format=3 uid="uid://ybenhd6fbj8j"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_h2saf"]
 [ext_resource type="PackedScene" uid="uid://dsj6nykf5oyy" path="res://player/player.tscn" id="1_rppqg"]
 [ext_resource type="PackedScene" uid="uid://crh65cxcgdky" path="res://stats/stats.tscn" id="2_3txjf"]
 [ext_resource type="Script" path="res://world/ground.gd" id="3_788gy"]
 [ext_resource type="Script" path="res://world/right_border.gd" id="5_oa4l7"]
+[ext_resource type="AudioStream" uid="uid://chxyeenfgfs1i" path="res://objects/egg/crack1.ogg" id="6_bxpy8"]
+[ext_resource type="AudioStream" uid="uid://djqdukj05yihe" path="res://objects/egg/crack2.ogg" id="7_01uc0"]
+[ext_resource type="AudioStream" uid="uid://beio3nrv4v5p4" path="res://objects/egg/crack3.ogg" id="8_1ic0f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jqv2v"]
 
@@ -16,6 +19,13 @@ normal = Vector2(1, 0)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_r3r6t"]
 normal = Vector2(-1, 0)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_a7b7y"]
+random_pitch = 1.5
+streams_count = 3
+stream_0/stream = ExtResource("6_bxpy8")
+stream_1/stream = ExtResource("7_01uc0")
+stream_2/stream = ExtResource("8_1ic0f")
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_h2saf")
@@ -53,3 +63,6 @@ shape = SubResource("WorldBoundaryShape2D_h3tyk")
 position = Vector2(1000, 0)
 shape = SubResource("WorldBoundaryShape2D_r3r6t")
 script = ExtResource("5_oa4l7")
+
+[node name="Crack" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_a7b7y")
