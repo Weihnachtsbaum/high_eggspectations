@@ -28,4 +28,7 @@ func _on_area_entered(area: Area2D) -> void:
 			area.parachute = true
 			following = area
 			on_egg = true
+			var sfx := $"../Parachute"
+			sfx.position = position
+			sfx.play()
 			SignalBus.saved.emit()
