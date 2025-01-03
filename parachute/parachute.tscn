@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bul8ft7g04pfu"]
+[gd_scene load_steps=6 format=3 uid="uid://bul8ft7g04pfu"]
 
 [ext_resource type="Script" path="res://parachute/parachute.gd" id="1_rv188"]
 [ext_resource type="Texture2D" uid="uid://s30mlm48ns14" path="res://parachute/parachute.png" id="1_vpbxv"]
+[ext_resource type="Shader" path="res://shaders/shadow.gdshader" id="2_vndeq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ke6sl"]
 radius = 30.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ykkw5"]
+shader = ExtResource("2_vndeq")
 
 [node name="Parachute" type="Area2D"]
 script = ExtResource("1_rv188")
@@ -14,6 +18,12 @@ shape = SubResource("CircleShape2D_ke6sl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_vpbxv")
+
+[node name="Shadow" type="Sprite2D" parent="Sprite2D"]
+z_index = -1
+material = SubResource("ShaderMaterial_ykkw5")
+position = Vector2(-50, 50)
 texture = ExtResource("1_vpbxv")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

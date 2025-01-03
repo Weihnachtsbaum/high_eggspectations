@@ -1,11 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://dsj6nykf5oyy"]
+[gd_scene load_steps=9 format=3 uid="uid://dsj6nykf5oyy"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_1xwc8"]
 [ext_resource type="Texture2D" uid="uid://bjdbuvyrui2oy" path="res://player/bird.png" id="1_bdylr"]
+[ext_resource type="Shader" path="res://shaders/shadow.gdshader" id="2_f7xl6"]
 [ext_resource type="AudioStream" uid="uid://cku37wn30b1ge" path="res://player/flap.ogg" id="3_wq66e"]
+[ext_resource type="Script" path="res://player/shadow.gd" id="4_1o1gi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lco1k"]
 radius = 270.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4mtv5"]
+shader = ExtResource("2_f7xl6")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ll8m4"]
 random_volume_offset_db = 3.0
@@ -25,6 +30,14 @@ shape = SubResource("CircleShape2D_lco1k")
 [node name="Sprite" type="Sprite2D" parent="Player"]
 texture = ExtResource("1_bdylr")
 flip_h = true
+
+[node name="Shadow" type="Sprite2D" parent="Player/Sprite"]
+z_index = -1
+material = SubResource("ShaderMaterial_4mtv5")
+position = Vector2(-50, 50)
+texture = ExtResource("1_bdylr")
+flip_h = true
+script = ExtResource("4_1o1gi")
 
 [node name="Flap" type="AudioStreamPlayer2D" parent="Player"]
 stream = SubResource("AudioStreamRandomizer_ll8m4")
