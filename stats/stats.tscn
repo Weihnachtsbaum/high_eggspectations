@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://crh65cxcgdky"]
+
+[ext_resource type="Script" path="res://stats/saved.gd" id="1_xkvp4"]
+[ext_resource type="Script" path="res://stats/cracked.gd" id="2_0km0d"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_skmnt"]
+font_size = 45
+font_color = Color(0.231916, 0.418056, 0.137809, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qjll1"]
+font_size = 45
+font_color = Color(0.644506, 0.192614, 0.168723, 1)
+
+[node name="Stats" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Saved" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Saved: 0"
+label_settings = SubResource("LabelSettings_skmnt")
+script = ExtResource("1_xkvp4")
+
+[node name="Cracked" type="Label" parent="."]
+layout_mode = 0
+offset_top = 50.0
+offset_right = 40.0
+offset_bottom = 119.0
+text = "Cracked: 0"
+label_settings = SubResource("LabelSettings_qjll1")
+script = ExtResource("2_0km0d")

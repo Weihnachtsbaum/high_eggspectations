@@ -16,6 +16,10 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		parachute = true
+		if not parachute:
+			SignalBus.saved.emit()
+			parachute = true
 	else:
+		if not parachute:
+			SignalBus.cracked.emit()
 		queue_free()
