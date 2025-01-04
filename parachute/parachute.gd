@@ -22,13 +22,14 @@ func _on_body_entered(body: Node2D) -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
-	if area.get_collision_layer_value(5): # 5 = eggs
-		if not area.parachute:
+	# layer 5 = eggs
+	if area.get_collision_layer_value(5) and not (on_egg or area.parachute):
+		if following != null:
 			following.has_parachute = false
-			area.parachute = true
-			following = area
-			on_egg = true
-			var sfx := $"../Parachute"
-			sfx.position = position
-			sfx.play()
-			SignalBus.saved.emit()
+		area.parachute = true
+		following = area
+		on_egg = true
+		var sfx := $"../Parachute"
+		sfx.position = position
+		sfx.play()
+		SignalBus.saved.emit()
