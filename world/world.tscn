@@ -146,3 +146,4 @@ stream = SubResource("AudioStreamRandomizer_a7b7y")
 stream = SubResource("AudioStreamRandomizer_qjifk")
 
 [node name="PauseMenu" parent="." instance=ExtResource("16_jyvde")]
+visible = false

@@ -13,3 +13,9 @@ func toggle_paused() -> void:
 	var tree := get_tree()
 	tree.paused = not tree.paused
 	visible = not visible
+
+
+func _on_quit_pressed() -> void:
+	var tree := get_tree()
+	tree.paused = not tree.paused
+	get_tree().change_scene_to_file("res://main_menu/main_menu.tscn")

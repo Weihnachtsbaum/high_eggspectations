@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3euh3wihxe2b"]
+
+[ext_resource type="Script" path="res://main_menu/play.gd" id="1_dsuhs"]
+
+[sub_resource type="Theme" id="Theme_0qiem"]
+default_font_size = 90
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -517.0
+offset_right = 517.0
+offset_bottom = 138.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[center][b][font_size=100]H[color=blue]🡹[/color]gh [img=120]res://objects/egg/egg.png[/img]spectations[/font_size][/b][/center]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -15.5
+offset_right = 20.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme = SubResource("Theme_0qiem")
+text = "Play"
+script = ExtResource("1_dsuhs")
+
+[connection signal="pressed" from="Play" to="Play" method="_on_pressed"]
