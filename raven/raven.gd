@@ -28,3 +28,4 @@ func _on_body_entered(body: Node2D) -> void:
 			$Sprite.flip_h = true
 		elif direction.x < 0.:
 			$Sprite.flip_h = false
+		$Call.play()
