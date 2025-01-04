@@ -3,7 +3,9 @@ extends Node2D
 const EGG := preload("res://objects/egg/egg.tscn")
 const PARACHUTE := preload("res://parachute/parachute.tscn")
 var egg_timer := 0.
+var egg_timer_len := 4.
 var parachute_timer := 0.
+var parachute_timer_len := 2.
 
 func spawn_egg() -> void:
 	var egg := EGG.instantiate()
@@ -27,9 +29,13 @@ func spawn_parachute() -> void:
 func _physics_process(delta: float) -> void:
 	egg_timer += delta
 	parachute_timer += delta
-	if egg_timer >= 4.:
+	if egg_timer >= egg_timer_len:
 		egg_timer = 0.
 		spawn_egg()
-	if parachute_timer >= 2.:
+		if egg_timer_len > 3.:
+			egg_timer_len -= 0.1
+	if parachute_timer >= parachute_timer_len:
 		parachute_timer = 0.
 		spawn_parachute()
+		if parachute_timer_len < 3.:
+			parachute_timer_len += 0.05
