@@ -19,3 +19,5 @@ https://godotshaders.com/shader/2d-wind-sway/
 <a href="https://www.flaticon.com/free-icons/raven" title="raven icons">Raven icons created by Freepik - Flaticon</a>
 
 https://soundfishing.eu/sound/crow
+
+<a href="https://www.flaticon.com/free-icons/thunder" title="thunder icons">Thunder icons created by Smashicons - Flaticon</a>

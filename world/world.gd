@@ -3,12 +3,14 @@ extends Node2D
 const EGG := preload("res://objects/egg/egg.tscn")
 const PARACHUTE := preload("res://parachute/parachute.tscn")
 const RAVEN := preload("res://raven/raven.tscn")
+const SPEED := preload("res://upgrades/speed/speed.tscn")
 var egg_timer := 0.
 var egg_timer_len := 4.
 var parachute_timer := 0.
 var parachute_timer_len := 2.
 var raven_timer := 0.
 var raven_timer_len := 15.
+var speed_timer := 0.
 
 var eggs: Node
 
@@ -53,6 +55,16 @@ func spawn_raven() -> void:
 		return
 
 
+func spawn_speed() -> void:
+	var speed := SPEED.instantiate()
+	var size: Vector2 = get_viewport().size
+	speed.position = Vector2(
+		randf_range(27., size.x - 27.),
+		randf_range(27., size.y - 100.)
+	)
+	add_child(speed)
+
+
 func _ready() -> void:
 	eggs = Node.new()
 	eggs.name = "Eggs"
@@ -63,6 +75,7 @@ func _physics_process(delta: float) -> void:
 	egg_timer += delta
 	parachute_timer += delta
 	raven_timer += delta
+	speed_timer += delta
 	if egg_timer >= egg_timer_len:
 		egg_timer = 0.
 		spawn_egg()
@@ -78,3 +91,6 @@ func _physics_process(delta: float) -> void:
 		spawn_raven()
 		if raven_timer_len > 10.:
 			raven_timer_len -= 1.
+	if speed_timer >= 30.:
+		speed_timer = 0.
+		spawn_speed()
