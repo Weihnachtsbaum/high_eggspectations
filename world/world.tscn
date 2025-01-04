@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://ybenhd6fbj8j"]
+[gd_scene load_steps=31 format=3 uid="uid://ybenhd6fbj8j"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_h2saf"]
 [ext_resource type="PackedScene" uid="uid://dsj6nykf5oyy" path="res://player/player.tscn" id="1_rppqg"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://cp85887ml80dr" path="res://parachute/parachute1.ogg" id="9_ntymt"]
 [ext_resource type="Shader" path="res://shaders/grass_shadow.gdshader" id="9_rffmb"]
 [ext_resource type="AudioStream" uid="uid://b6jjx7g265vjp" path="res://parachute/parachute2.ogg" id="10_6sil8"]
+[ext_resource type="PackedScene" uid="uid://iqv7d6iy8lcf" path="res://pause_menu/pause_menu.tscn" id="16_jyvde"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_yw5mj"]
 noise_type = 0
@@ -90,6 +91,7 @@ stream_1/stream = ExtResource("10_6sil8")
 script = ExtResource("1_h2saf")
 
 [node name="Sky" type="Sprite2D" parent="."]
+z_index = -1
 material = SubResource("ShaderMaterial_g6ihc")
 position = Vector2(550, 300)
 scale = Vector2(1100, 500)
@@ -142,3 +144,5 @@ stream = SubResource("AudioStreamRandomizer_a7b7y")
 
 [node name="Parachute" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_qjifk")
+
+[node name="PauseMenu" parent="." instance=ExtResource("16_jyvde")]
