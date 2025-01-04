@@ -22,7 +22,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
-	if area.name == "Egg":
+	if area.get_collision_layer_value(5): # 5 = eggs
 		if not area.parachute:
 			following.has_parachute = false
 			area.parachute = true
