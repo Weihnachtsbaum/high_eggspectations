@@ -12,7 +12,7 @@ shader = ExtResource("2_vndeq")
 
 [node name="Parachute" type="Area2D"]
 collision_layer = 8
-collision_mask = 21
+collision_mask = 53
 script = ExtResource("1_rv188")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

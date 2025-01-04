@@ -32,4 +32,8 @@ func _on_area_entered(area: Area2D) -> void:
 		var sfx := $"../Parachute"
 		sfx.position = position
 		sfx.play()
-		SignalBus.saved.emit()
+	elif area.get_collision_layer_value(6) and on_egg and not area.has_parachute:
+		following.parachute = false
+		following = area
+		on_egg = false
+		area.has_parachute = true

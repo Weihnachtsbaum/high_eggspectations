@@ -16,9 +16,11 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name != "Player":
-		if not parachute:
+		if parachute:
+			SignalBus.saved.emit()
+		else:
 			SignalBus.cracked.emit()
-			var crack := $"../Crack"
+			var crack := $"../../Crack"
 			crack.position = position
 			crack.play()
 		queue_free()
