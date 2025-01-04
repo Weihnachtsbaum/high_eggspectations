@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://ybenhd6fbj8j"]
+[gd_scene load_steps=28 format=3 uid="uid://ybenhd6fbj8j"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_h2saf"]
 [ext_resource type="PackedScene" uid="uid://dsj6nykf5oyy" path="res://player/player.tscn" id="1_rppqg"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://djqdukj05yihe" path="res://objects/egg/crack2.ogg" id="7_01uc0"]
 [ext_resource type="PackedScene" uid="uid://drxalmua1wdjv" path="res://grass/grass.tscn" id="7_k4qpr"]
 [ext_resource type="AudioStream" uid="uid://beio3nrv4v5p4" path="res://objects/egg/crack3.ogg" id="8_1ic0f"]
+[ext_resource type="Shader" path="res://shaders/wind.gdshader" id="8_42jmb"]
 [ext_resource type="AudioStream" uid="uid://cp85887ml80dr" path="res://parachute/parachute1.ogg" id="9_ntymt"]
 [ext_resource type="AudioStream" uid="uid://b6jjx7g265vjp" path="res://parachute/parachute2.ogg" id="10_6sil8"]
 
@@ -38,6 +39,17 @@ shader_parameter/noise_texture2 = SubResource("NoiseTexture2D_82h7h")
 [sub_resource type="CanvasTexture" id="CanvasTexture_ygmmp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jqv2v"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pxewy"]
+shader = ExtResource("8_42jmb")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.2
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/offset = 0.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lmg26"]
 normal = Vector2(0, 1)
@@ -87,6 +99,7 @@ shape = SubResource("RectangleShape2D_jqv2v")
 
 [node name="Grass" parent="Ground" instance=ExtResource("7_k4qpr")]
 z_index = 1
+material = SubResource("ShaderMaterial_pxewy")
 position = Vector2(0, -60)
 scale = Vector2(0.7, 0.7)
 
