@@ -1,8 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://ybenhd6fbj8j"]
+[gd_scene load_steps=25 format=3 uid="uid://ybenhd6fbj8j"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_h2saf"]
 [ext_resource type="PackedScene" uid="uid://dsj6nykf5oyy" path="res://player/player.tscn" id="1_rppqg"]
+[ext_resource type="Shader" path="res://shaders/clouds.gdshader" id="2_2lo3i"]
 [ext_resource type="PackedScene" uid="uid://crh65cxcgdky" path="res://stats/stats.tscn" id="2_3txjf"]
+[ext_resource type="Script" path="res://world/sky.gd" id="3_2ovsf"]
 [ext_resource type="Script" path="res://world/ground.gd" id="3_788gy"]
 [ext_resource type="Script" path="res://world/right_border.gd" id="5_oa4l7"]
 [ext_resource type="AudioStream" uid="uid://chxyeenfgfs1i" path="res://objects/egg/crack1.ogg" id="6_bxpy8"]
@@ -10,6 +12,29 @@
 [ext_resource type="AudioStream" uid="uid://beio3nrv4v5p4" path="res://objects/egg/crack3.ogg" id="8_1ic0f"]
 [ext_resource type="AudioStream" uid="uid://cp85887ml80dr" path="res://parachute/parachute1.ogg" id="9_ntymt"]
 [ext_resource type="AudioStream" uid="uid://b6jjx7g265vjp" path="res://parachute/parachute2.ogg" id="10_6sil8"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_yw5mj"]
+noise_type = 0
+frequency = 0.005
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_prck0"]
+seamless = true
+seamless_blend_skirt = 0.3
+noise = SubResource("FastNoiseLite_yw5mj")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2k7hx"]
+noise_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_82h7h"]
+seamless = true
+noise = SubResource("FastNoiseLite_2k7hx")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g6ihc"]
+shader = ExtResource("2_2lo3i")
+shader_parameter/noise_texture1 = SubResource("NoiseTexture2D_prck0")
+shader_parameter/noise_texture2 = SubResource("NoiseTexture2D_82h7h")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ygmmp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jqv2v"]
 
@@ -38,6 +63,13 @@ stream_1/stream = ExtResource("10_6sil8")
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_h2saf")
+
+[node name="Sky" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_g6ihc")
+position = Vector2(550, 300)
+scale = Vector2(1100, 500)
+texture = SubResource("CanvasTexture_ygmmp")
+script = ExtResource("3_2ovsf")
 
 [node name="Stats" parent="." instance=ExtResource("2_3txjf")]
 
