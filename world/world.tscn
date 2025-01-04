@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ybenhd6fbj8j"]
+[gd_scene load_steps=26 format=3 uid="uid://ybenhd6fbj8j"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_h2saf"]
 [ext_resource type="PackedScene" uid="uid://dsj6nykf5oyy" path="res://player/player.tscn" id="1_rppqg"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://world/right_border.gd" id="5_oa4l7"]
 [ext_resource type="AudioStream" uid="uid://chxyeenfgfs1i" path="res://objects/egg/crack1.ogg" id="6_bxpy8"]
 [ext_resource type="AudioStream" uid="uid://djqdukj05yihe" path="res://objects/egg/crack2.ogg" id="7_01uc0"]
+[ext_resource type="PackedScene" uid="uid://drxalmua1wdjv" path="res://grass/grass.tscn" id="7_k4qpr"]
 [ext_resource type="AudioStream" uid="uid://beio3nrv4v5p4" path="res://objects/egg/crack3.ogg" id="8_1ic0f"]
 [ext_resource type="AudioStream" uid="uid://cp85887ml80dr" path="res://parachute/parachute1.ogg" id="9_ntymt"]
 [ext_resource type="AudioStream" uid="uid://b6jjx7g265vjp" path="res://parachute/parachute2.ogg" id="10_6sil8"]
@@ -78,18 +79,16 @@ position = Vector2(50, 200)
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(600, 600)
-scale = Vector2(60, 5)
 script = ExtResource("3_788gy")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Ground"]
+scale = Vector2(60, 1)
 shape = SubResource("RectangleShape2D_jqv2v")
 
-[node name="ColorRect" type="ColorRect" parent="Ground"]
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 10.0
-offset_bottom = 10.0
-color = Color(0.461838, 0.828769, 0.304555, 1)
+[node name="Grass" parent="Ground" instance=ExtResource("7_k4qpr")]
+z_index = 1
+position = Vector2(0, -60)
+scale = Vector2(0.7, 0.7)
 
 [node name="Border" type="StaticBody2D" parent="."]
 collision_layer = 2
