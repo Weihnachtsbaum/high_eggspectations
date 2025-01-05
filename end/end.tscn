@@ -109,7 +109,7 @@ offset_bottom = 77.0
 grow_horizontal = 2
 focus_mode = 0
 theme = ExtResource("3_0t4bb")
-text = "Contiue in Endless mode"
+text = "Continue in Endless mode"
 
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
