@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ut2k152bc8ac"]
+[gd_scene load_steps=12 format=3 uid="uid://ut2k152bc8ac"]
 
 [ext_resource type="Script" path="res://raven/raven.gd" id="1_03irh"]
 [ext_resource type="Texture2D" uid="uid://lwf7d3wkrsk4" path="res://raven/raven.png" id="1_dgby8"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://b47slukj1j2j6" path="res://raven/raven2.ogg" id="5_yw82l"]
 [ext_resource type="AudioStream" uid="uid://dsvkoovfeadxj" path="res://raven/raven3.ogg" id="6_o5m57"]
 [ext_resource type="AudioStream" uid="uid://bx0own00xliyb" path="res://raven/raven4.ogg" id="7_n2f62"]
+[ext_resource type="PackedScene" uid="uid://dcoen7etd4yrr" path="res://audio/flap/flap.tscn" id="8_7igyq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0ipp4"]
 radius = 155.621
@@ -45,5 +46,7 @@ texture = ExtResource("1_dgby8")
 
 [node name="Call" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_x3ahr")
+
+[node name="Flap" parent="." instance=ExtResource("8_7igyq")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcoen7etd4yrr"]
+
+[ext_resource type="AudioStream" uid="uid://cku37wn30b1ge" path="res://audio/flap/flap.ogg" id="1_e5hub"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_mfkd1"]
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("1_e5hub")
+
+[node name="Flap" type="AudioStreamPlayer2D"]
+stream = SubResource("AudioStreamRandomizer_mfkd1")

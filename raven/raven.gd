@@ -26,6 +26,7 @@ func _physics_process(delta: float) -> void:
 	jump_timer += delta
 	if position.y > target_y and jump_timer > 0.5:
 		y_vel = jump_speed
+		$Flap.play()
 		jump_timer = 0.
 
 
