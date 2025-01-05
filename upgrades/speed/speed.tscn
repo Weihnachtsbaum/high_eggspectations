@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://wux5ns1cl6vk"]
+[gd_scene load_steps=7 format=3 uid="uid://wux5ns1cl6vk"]
 
 [ext_resource type="Texture2D" uid="uid://bvp4entnfd8h2" path="res://upgrades/speed/lightning.png" id="1_mo7y7"]
 [ext_resource type="Script" path="res://upgrades/speed/speed.gd" id="1_mqjwn"]
 [ext_resource type="Shader" path="res://shaders/shadow.gdshader" id="3_j0f56"]
+[ext_resource type="AudioStream" uid="uid://c0n7jtf6ket22" path="res://upgrades/upgrade.ogg" id="4_c2svf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_427bi"]
 radius = 113.452
@@ -30,5 +31,9 @@ z_index = -1
 material = SubResource("ShaderMaterial_nnv71")
 position = Vector2(-50, 50)
 texture = ExtResource("1_mo7y7")
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_c2svf")
+pitch_scale = 0.8
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

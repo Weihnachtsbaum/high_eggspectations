@@ -25,6 +25,7 @@ func _on_body_entered(body: Node2D) -> void:
 		player = body
 		player.speed += SPEED_BOOST
 		player.jump_speed += JUMP_BOOST
+		$Sound.play()
 		hide()
 	# layer 3 = ground
 	elif visible and (body as CollisionObject2D).get_collision_layer_value(3):
