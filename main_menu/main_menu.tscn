@@ -36,7 +36,7 @@ offset_right = 517.0
 offset_bottom = 138.0
 grow_horizontal = 2
 bbcode_enabled = true
-text = "[center][b][font_size=100]H[color=blue]🡹[/color]gh [img=120]res://objects/egg/egg.png[/img]spectations[/font_size][/b][/center]"
+text = "[center][b][font_size=100]H[img]res://main_menu/arrow.svg[/img]gh [img=120]res://objects/egg/egg.png[/img]spectations[/font_size][/b][/center]"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
