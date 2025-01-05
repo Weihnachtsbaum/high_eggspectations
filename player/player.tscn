@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://player/player.gd" id="1_1xwc8"]
 [ext_resource type="Texture2D" uid="uid://bjdbuvyrui2oy" path="res://player/bird.png" id="1_bdylr"]
 [ext_resource type="Shader" path="res://shaders/shadow.gdshader" id="2_f7xl6"]
-[ext_resource type="Script" path="res://player/shadow.gd" id="4_1o1gi"]
+[ext_resource type="Script" path="res://flip_shadow.gd" id="4_1o1gi"]
 [ext_resource type="PackedScene" uid="uid://dcoen7etd4yrr" path="res://audio/flap/flap.tscn" id="5_w0xtq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lco1k"]

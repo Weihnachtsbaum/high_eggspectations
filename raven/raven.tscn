@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://ut2k152bc8ac"]
+[gd_scene load_steps=13 format=3 uid="uid://ut2k152bc8ac"]
 
 [ext_resource type="Script" path="res://raven/raven.gd" id="1_03irh"]
 [ext_resource type="Texture2D" uid="uid://lwf7d3wkrsk4" path="res://raven/raven.png" id="1_dgby8"]
 [ext_resource type="Shader" path="res://shaders/shadow.gdshader" id="2_ry6vw"]
+[ext_resource type="Script" path="res://flip_shadow.gd" id="4_20jbu"]
 [ext_resource type="AudioStream" uid="uid://dktn6l4p8ph0n" path="res://raven/raven1.ogg" id="4_m8xa7"]
 [ext_resource type="AudioStream" uid="uid://b47slukj1j2j6" path="res://raven/raven2.ogg" id="5_yw82l"]
 [ext_resource type="AudioStream" uid="uid://dsvkoovfeadxj" path="res://raven/raven3.ogg" id="6_o5m57"]
@@ -43,6 +44,7 @@ z_index = -1
 material = SubResource("ShaderMaterial_frehg")
 position = Vector2(-50, 50)
 texture = ExtResource("1_dgby8")
+script = ExtResource("4_20jbu")
 
 [node name="Call" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_x3ahr")
