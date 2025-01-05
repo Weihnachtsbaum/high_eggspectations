@@ -25,7 +25,7 @@ gdscript/warnings/untyped_declaration=1
 
 [editor]
 
-movie_writer/movie_file="C:/Users/Yarden/Programmieren/Godot/Games/gravity/.bin/recording/game.avi"
+movie_writer/movie_file=".bin/recording/game.avi"
 
 [input]
 
