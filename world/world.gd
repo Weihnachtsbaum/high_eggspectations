@@ -60,7 +60,7 @@ func spawn_speed() -> void:
 	var size: Vector2 = get_viewport().size
 	speed.position = Vector2(
 		randf_range(27., size.x - 27.),
-		randf_range(27., size.y - 100.)
+		-30.
 	)
 	add_child(speed)
 
