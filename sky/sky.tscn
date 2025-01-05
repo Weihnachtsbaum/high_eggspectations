@@ -1,0 +1,35 @@
+[gd_scene load_steps=9 format=3 uid="uid://c4uefcviu1kbl"]
+
+[ext_resource type="Shader" path="res://shaders/clouds.gdshader" id="1_nsq8p"]
+[ext_resource type="Script" path="res://sky/sky.gd" id="2_y3l8s"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_yw5mj"]
+noise_type = 0
+frequency = 0.005
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_prck0"]
+seamless = true
+seamless_blend_skirt = 0.3
+noise = SubResource("FastNoiseLite_yw5mj")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2k7hx"]
+noise_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_82h7h"]
+seamless = true
+noise = SubResource("FastNoiseLite_2k7hx")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g6ihc"]
+shader = ExtResource("1_nsq8p")
+shader_parameter/noise_texture1 = SubResource("NoiseTexture2D_prck0")
+shader_parameter/noise_texture2 = SubResource("NoiseTexture2D_82h7h")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ygmmp"]
+
+[node name="Sky" type="Sprite2D"]
+z_index = -1
+material = SubResource("ShaderMaterial_g6ihc")
+position = Vector2(550, 300)
+scale = Vector2(1100, 500)
+texture = SubResource("CanvasTexture_ygmmp")
+script = ExtResource("2_y3l8s")

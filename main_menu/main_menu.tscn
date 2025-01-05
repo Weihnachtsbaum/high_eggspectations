@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://d3euh3wihxe2b"]
+[gd_scene load_steps=5 format=3 uid="uid://d3euh3wihxe2b"]
 
+[ext_resource type="PackedScene" uid="uid://c4uefcviu1kbl" path="res://sky/sky.tscn" id="1_aucpl"]
 [ext_resource type="Script" path="res://main_menu/play.gd" id="1_dsuhs"]
 [ext_resource type="PackedScene" uid="uid://dd5dhsp5d3j6c" path="res://god_rays/god_rays.tscn" id="2_ouq60"]
 
@@ -13,6 +14,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Sky" parent="." instance=ExtResource("1_aucpl")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 1
