@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://d3euh3wihxe2b"]
+[gd_scene load_steps=6 format=3 uid="uid://d3euh3wihxe2b"]
 
 [ext_resource type="PackedScene" uid="uid://c4uefcviu1kbl" path="res://sky/sky.tscn" id="1_aucpl"]
 [ext_resource type="Script" path="res://main_menu/play.gd" id="1_dsuhs"]
 [ext_resource type="PackedScene" uid="uid://dd5dhsp5d3j6c" path="res://god_rays/god_rays.tscn" id="2_ouq60"]
+[ext_resource type="Shortcut" uid="uid://86t8y8fuoevt" path="res://resources/enter_shortcut.tres" id="2_tc308"]
 
 [sub_resource type="Theme" id="Theme_0qiem"]
 default_font_size = 90
@@ -56,6 +57,8 @@ grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
 theme = SubResource("Theme_0qiem")
+shortcut = ExtResource("2_tc308")
+shortcut_in_tooltip = false
 text = "Play"
 script = ExtResource("1_dsuhs")
 
