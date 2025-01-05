@@ -1,7 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://dggbx85qubu0l"]
 
-[ext_resource type="LabelSettings" uid="uid://bs58n0eksy563" path="res://resources/text.tres" id="1_biyw3"]
 [ext_resource type="Script" path="res://timer/timer.gd" id="1_rlere"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q7kd0"]
+font_size = 75
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-3, 3)
 
 [node name="Timer" type="Control"]
 layout_mode = 3
@@ -21,4 +26,4 @@ offset_left = -99.0
 offset_bottom = 69.0
 grow_horizontal = 0
 text = "1:30"
-label_settings = ExtResource("1_biyw3")
+label_settings = SubResource("LabelSettings_q7kd0")
