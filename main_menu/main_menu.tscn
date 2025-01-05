@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3euh3wihxe2b"]
+[gd_scene load_steps=4 format=3 uid="uid://d3euh3wihxe2b"]
 
 [ext_resource type="Script" path="res://main_menu/play.gd" id="1_dsuhs"]
+[ext_resource type="PackedScene" uid="uid://dd5dhsp5d3j6c" path="res://god_rays/god_rays.tscn" id="2_ouq60"]
 
 [sub_resource type="Theme" id="Theme_0qiem"]
 default_font_size = 90
@@ -45,5 +46,7 @@ focus_mode = 0
 theme = SubResource("Theme_0qiem")
 text = "Play"
 script = ExtResource("1_dsuhs")
+
+[node name="GodRays" parent="." instance=ExtResource("2_ouq60")]
 
 [connection signal="pressed" from="Play" to="Play" method="_on_pressed"]

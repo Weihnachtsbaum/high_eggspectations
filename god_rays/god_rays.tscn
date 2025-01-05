@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://dd5dhsp5d3j6c"]
+
+[ext_resource type="Shader" path="res://shaders/god_rays.gdshader" id="1_p85b6"]
+[ext_resource type="Script" path="res://god_rays/god_rays.gd" id="2_awpf7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l3xiv"]
+shader = ExtResource("1_p85b6")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_i3p7c"]
+
+[node name="GodRays" type="Sprite2D"]
+material = SubResource("ShaderMaterial_l3xiv")
+position = Vector2(700, 300)
+scale = Vector2(1000, 600)
+skew = 0.349066
+texture = SubResource("CanvasTexture_i3p7c")
+script = ExtResource("2_awpf7")
